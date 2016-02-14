@@ -28,35 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.sort_button = new System.Windows.Forms.Button();
+            this.input_tB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.output_tB = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.random_button = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // sort_button
             // 
-            this.button1.Location = new System.Drawing.Point(197, 226);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Sortieren";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.sort_button.Location = new System.Drawing.Point(197, 226);
+            this.sort_button.Name = "sort_button";
+            this.sort_button.Size = new System.Drawing.Size(75, 23);
+            this.sort_button.TabIndex = 0;
+            this.sort_button.Text = "Sortieren";
+            this.sort_button.UseVisualStyleBackColor = true;
+            this.sort_button.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // input_tB
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.input_tB.Location = new System.Drawing.Point(12, 36);
+            this.input_tB.Name = "input_tB";
+            this.input_tB.Size = new System.Drawing.Size(100, 20);
+            this.input_tB.TabIndex = 1;
+            this.input_tB.Text = "4 3 2 1";
             // 
             // label1
             // 
@@ -76,12 +80,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Output:";
             // 
-            // textBox2
+            // output_tB
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 124);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.output_tB.Location = new System.Drawing.Point(12, 124);
+            this.output_tB.Name = "output_tB";
+            this.output_tB.Size = new System.Drawing.Size(100, 20);
+            this.output_tB.TabIndex = 4;
             // 
             // comboBox1
             // 
@@ -89,7 +93,8 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Selection - Sort.",
             "Insertation - Sort.",
-            "Bubble - Sort."});
+            "Bubble - Sort.",
+            "Bubble - Sort.2"});
             this.comboBox1.Location = new System.Drawing.Point(12, 84);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -134,21 +139,54 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Zeit:";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(275, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Schritte:";
+            // 
+            // random_button
+            // 
+            this.random_button.Location = new System.Drawing.Point(118, 33);
+            this.random_button.Name = "random_button";
+            this.random_button.Size = new System.Drawing.Size(75, 23);
+            this.random_button.TabIndex = 10;
+            this.random_button.Text = "Random";
+            this.random_button.UseVisualStyleBackColor = true;
+            this.random_button.Click += new System.EventHandler(this.random_button_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Location = new System.Drawing.Point(278, 37);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(292, 212);
+            this.richTextBox1.TabIndex = 11;
+            this.richTextBox1.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(576, 261);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.random_button);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.output_tB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.input_tB);
+            this.Controls.Add(this.sort_button);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "SortAlgo";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -158,16 +196,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button sort_button;
+        private System.Windows.Forms.TextBox input_tB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox output_tB;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button random_button;
+        internal System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

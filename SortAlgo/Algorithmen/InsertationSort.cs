@@ -1,35 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace SortAlgo.Algorithmen
 {
     class InsertationSort
     {
-        public int[] sort(int[] array, int elemente)
+        public void sort(int[] array, int elemente, Form1 f1)
         {
-            int index, index_klein, wert_klein;
+            int temp, j;
+            int z = 0;
+            int[] temparray = new int[array.Length];
 
-            /* Schleife von links-1 nach rechts */
-            for (index = 1; index <= elemente; index++)
+            for (int i = 1; i < array.Length; i++)
             {
-                /* aktuelle Position zwischenspeichern */
-                wert_klein = array[index];
-                /* Kleineren Wert als wert_klein suchen. Schleife  läuft
-                 * von aktueller Position von rechts nach links durch. */
-                for (index_klein = index;
-                     array[index_klein - 1] > wert_klein && index_klein > 0;
-                     index_klein--)
-                    /* wenn Vorgänger größer als aktuelles
-                     * Element in wert_klein */
-                    array[index_klein] = array[index_klein - 1];
-                /* gespeichertes Element an neue Position ->
-                 * Lücke auffüllen */
-                array[index_klein] = wert_klein;
+                System.Array.Copy(array, temparray, array.Length);
+                f1.richTextBox1.AppendText("Schritt " + z + ": ");
+                z++;
+
+                temp = array[i];
+                j = i - 1;
+
+                while (j >= 0 && array[j] > temp)
+                {
+                    array[j + 1] = array[j];
+                    j--;
+                }
+                array[j + 1] = temp;
+                ColorNumbers(array, temparray, f1);
             }
-            return array;
+        }
+        private void ColorNumbers(int[] neu, int[] alt, Form1 f1)
+        {
+            for (int x = 0; x < alt.Length; x++)
+            {
+                if (alt[x] != neu[x])
+                {
+                    f1.richTextBox1.SelectionColor = Color.CornflowerBlue;
+                    f1.richTextBox1.AppendText(alt[x].ToString());
+                    f1.richTextBox1.SelectionColor = Color.Black;
+                    f1.richTextBox1.AppendText(" ");
+                }
+                else
+                {
+                    f1.richTextBox1.AppendText(alt[x].ToString());
+                    f1.richTextBox1.AppendText(" ");
+                }
+            }
+            f1.richTextBox1.AppendText("\n");
         }
     }
 }

@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using SortAlgo.Algorithmen;
+using System.Drawing;
 
 namespace SortAlgo
 {
@@ -17,10 +12,7 @@ namespace SortAlgo
         InsertationSort mInsertationSort = new InsertationSort();
         BubbleSort mBubbleSort = new BubbleSort();
 
-        List<int> l = new List<int>();
-
-
-        int[] output;
+        
 
         public Form1()
         {
@@ -29,13 +21,17 @@ namespace SortAlgo
 
         private void button1_Click(object sender, EventArgs e)
         {
+            List<int> l = new List<int>();
             Performance mPerformance = new Performance();
             int arrayLaenge;
 
+            //Listbox leeren
+            richTextBox1.Clear();
+
             mPerformance.Start();
             #region Textbox to String List
-            char[] delimiterChars = { ' ', ';'}; //Zeichen, bei denen gesplittet werden soll
-            string text = textBox1.Text; //Text aus der Textbox
+            char[] delimiterChars = { ' ', ';' }; //Zeichen, bei denen gesplittet werden soll
+            string text = input_tB.Text; //Text aus der Textbox
             string[] words = text.Split(delimiterChars);    //Array mit gesplitteten Strings wird erstellt
 
             foreach (string s in words)
@@ -49,42 +45,52 @@ namespace SortAlgo
                     continue;
                     throw;
                 }
-                
+
             }
             #endregion
 
-            #region String List to Int[]
+            #region List<String> to Int[]
             int[] input = l.ToArray();
             arrayLaenge = input.Length;
             label6.Text = "Anzahl der Elemente: " + arrayLaenge;
             #endregion
 
-            //Sortieralgorithmen wählen
-            switch (comboBox1.Text)
+            //Algorithmus auswählen
+            #region Algorithmen auswahl
+            if (comboBox1.Text == "Selection - Sort.")
             {
-                case "Selection - Sort.":
-                    output = mSelectionSort.sort(input, arrayLaenge-1);
-                        break;
-                case "Insertation - Sort.":
-                    output = mInsertationSort.sort(input, arrayLaenge - 1);
-                    break;
-                case "Bubble - Sort.":
-                    output = mBubbleSort.sort(input, arrayLaenge - 1);
-                    break;
-                case "<bitte wählen>": MessageBox.Show("Bitte geben sie ein Verfahren an!");
-                    break;
-                default: MessageBox.Show("Bitte tragen sie in Input ein paar Zeichen ein und wählen sie ein Sortierverfahren!");
-                    break;
+                mSelectionSort.sort(input, arrayLaenge -1, this);
             }
-
-            if(output != null)
+            else if (comboBox1.Text == "Insertation - Sort.")
             {
-                textBox2.Text = string.Join("", output);
+                mInsertationSort.sort(input, arrayLaenge -1, this);
             }
-
-            output = null;
+            else if (comboBox1.Text == "Bubble - Sort.")
+            {
+                mBubbleSort.sort(input, arrayLaenge - 1, this);
+            }
+            else if (comboBox1.Text == "Bubble - Sort.2")
+            {
+                mBubbleSort.sort2(input, this);
+            }
+            else if (comboBox1.Text == "<bitte wählen>")
+            {
+                MessageBox.Show("Bitte geben sie ein Verfahren an!");
+            }
+            else
+            {
+                MessageBox.Show("Bitte tragen sie in Input ein paar Zeichen ein und wählen sie ein Sortierverfahren!");
+            }
+            #endregion
             mPerformance.Stop();
-            label4.Text = "Zeit: " + mPerformance.Duration;
+            label4.Text = "Zeit: " + mPerformance.Duration;            
         }
+
+        private void random_button_Click(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            input_tB.Text += r.Next(1, 100)+ " ";
+        }
+        
     }
 }
