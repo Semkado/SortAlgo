@@ -4,17 +4,15 @@ namespace SortAlgo.Algorithmen
 {
     class InsertationSort
     {
+        int z = 0;
         public void sort(int[] array, int elemente, Form1 f1)
         {
             int temp, j;
-            int z = 0;
             int[] temparray = new int[array.Length];
 
             for (int i = 1; i < array.Length; i++)
             {
                 System.Array.Copy(array, temparray, array.Length);
-                f1.richTextBox1.AppendText("Schritt " + z + ": ");
-                z++;
 
                 temp = array[i];
                 j = i - 1;
@@ -27,10 +25,15 @@ namespace SortAlgo.Algorithmen
                 array[j + 1] = temp;
                 ColorNumbers(array, temparray, f1);
             }
+            f1.richTextBox1.AppendText("Schritt " + z + ": " + string.Join(" ", array));
+            z = 0;
         }
         private void ColorNumbers(int[] neu, int[] alt, Form1 f1)
         {
-            for (int x = 0; x < alt.Length; x++)
+            f1.richTextBox1.AppendText("Schritt " + z + ": ");
+            z++;
+
+            for (int x = 0; x < neu.Length; x++)
             {
                 if (alt[x] != neu[x])
                 {

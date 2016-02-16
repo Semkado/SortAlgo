@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using SortAlgo.Algorithmen;
-using System.Drawing;
 
 namespace SortAlgo
 {
@@ -11,8 +10,7 @@ namespace SortAlgo
         SelectionSort mSelectionSort = new SelectionSort();
         InsertationSort mInsertationSort = new InsertationSort();
         BubbleSort mBubbleSort = new BubbleSort();
-
-        
+        MergeSort mMergeSort = new MergeSort();        
 
         public Form1()
         {
@@ -69,9 +67,12 @@ namespace SortAlgo
             {
                 mBubbleSort.sort(input, arrayLaenge - 1, this);
             }
-            else if (comboBox1.Text == "Bubble - Sort.2")
+            else if (comboBox1.Text == "Merge - Sort.")
             {
-                mBubbleSort.sort2(input, this);
+                MessageBox.Show("Noch nicht verfügbar!",
+                    "Algorithmus nicht gefunden",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
             }
             else if (comboBox1.Text == "<bitte wählen>")
             {
@@ -79,9 +80,13 @@ namespace SortAlgo
             }
             else
             {
-                MessageBox.Show("Bitte tragen sie in Input ein paar Zeichen ein und wählen sie ein Sortierverfahren!");
+                MessageBox.Show("Bitte wählen Sie einen gültigen Algorithmus!",
+                    "Algorithmus nicht gefunden",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
             }
             #endregion
+
             mPerformance.Stop();
             label4.Text = "Zeit: " + mPerformance.Duration;            
         }
@@ -91,6 +96,5 @@ namespace SortAlgo
             Random r = new Random();
             input_tB.Text += r.Next(1, 100)+ " ";
         }
-        
     }
 }

@@ -4,18 +4,18 @@ namespace SortAlgo.Algorithmen
 {
     class SelectionSort
     {
+        int z = 0;
         public void sort(int[] array, int elemente, Form1 f1)
         {
             int index, index_klein,
                 wert, wert_klein;
-            int z = 0;
+
             int[] temparray = new int[array.Length];
 
             for (index = 0; index < elemente; index++)
             {
                 System.Array.Copy(array, temparray, array.Length);
-                f1.richTextBox1.AppendText("Schritt " + z + ": ");
-                z++;
+
                 wert = index;
                 for (index_klein = index + 1; index_klein <= elemente; index_klein++)
                 {
@@ -33,10 +33,15 @@ namespace SortAlgo.Algorithmen
                 }
                 ColorNumbers(array, temparray, f1);
             }
+            f1.richTextBox1.AppendText("Schritt " + z + ": " + string.Join(" ", array));
+            z = 0;
         }
         private void ColorNumbers(int[] neu, int[] alt, Form1 f1)
         {
-            for (int x = 0; x < alt.Length; x++)
+            f1.richTextBox1.AppendText("Schritt " + z + ": ");
+            z++;
+
+            for (int x = 0; x < neu.Length; x++)
             {
                 if (alt[x] != neu[x])
                 {

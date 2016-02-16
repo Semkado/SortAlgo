@@ -31,8 +31,6 @@
             this.sort_button = new System.Windows.Forms.Button();
             this.input_tB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.output_tB = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -60,7 +58,7 @@
             this.input_tB.Name = "input_tB";
             this.input_tB.Size = new System.Drawing.Size(100, 20);
             this.input_tB.TabIndex = 1;
-            this.input_tB.Text = "4 3 2 1";
+            this.input_tB.Text = "3 2 1";
             // 
             // label1
             // 
@@ -71,33 +69,18 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Input:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 108);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Output:";
-            // 
-            // output_tB
-            // 
-            this.output_tB.Location = new System.Drawing.Point(12, 124);
-            this.output_tB.Name = "output_tB";
-            this.output_tB.Size = new System.Drawing.Size(100, 20);
-            this.output_tB.TabIndex = 4;
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Selection - Sort.",
-            "Insertation - Sort.",
             "Bubble - Sort.",
-            "Bubble - Sort.2"});
+            "Insertation - Sort.",
+            "Merge - Sort.",
+            "Selection - Sort."});
             this.comboBox1.Location = new System.Drawing.Point(12, 84);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Sorted = true;
             this.comboBox1.TabIndex = 5;
             this.comboBox1.Text = "<bitte wählen>";
             // 
@@ -163,8 +146,11 @@
             this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.BackColor = System.Drawing.Color.White;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Location = new System.Drawing.Point(278, 37);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(292, 212);
             this.richTextBox1.TabIndex = 11;
             this.richTextBox1.Text = "";
@@ -180,12 +166,12 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.output_tB);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.input_tB);
             this.Controls.Add(this.sort_button);
             this.Name = "Form1";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SortAlgo";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -199,8 +185,6 @@
         private System.Windows.Forms.Button sort_button;
         private System.Windows.Forms.TextBox input_tB;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox output_tB;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
