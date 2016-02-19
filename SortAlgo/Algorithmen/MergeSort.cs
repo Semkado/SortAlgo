@@ -1,52 +1,66 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace SortAlgo.Algorithmen
 {
-    public class MergeSort
+    internal class MergeSort : Sort
     {
-        void sort(int[] arr)
+        int z = 0;
+        public void sort(int[] input, int left, int right, Form1 f1)
         {
-            int[] helper = new int[arr.Length];
-            mergesort(arr, helper, 0, arr.Length - 1);
-        }
+            int[] temparray = new int[input.Length];
 
-        void mergesort(int[] arr, int[] helper, int low, int high)
-        {
-            if (low < high)
+            if (left < right)
             {
-                int middle = (high + low) / 2;
-                mergesort(arr, helper, low, middle);
-                mergesort(arr, helper, middle + 1, high);
-                merge(arr, helper, low, middle, high);
+                int middle = (left + right) / 2;
+
+                Array.Copy(input, temparray, input.Length);
+
+                sort(input, left, middle, f1);
+                sort(input, middle + 1, right, f1);
+
+                //Merge
+                int[] leftArray = new int[middle - left + 1];
+                int[] rightArray = new int[right - middle];
+
+                Array.Copy(input, left, leftArray, 0, middle - left + 1);
+                Array.Copy(input, middle + 1, rightArray, 0, right - middle);
+                f1.changedValues++;
+                
+                int i = 0;
+                int j = 0;
+                for (int k = left; k < right + 1; k++)
+                {
+                    if (i == leftArray.Length)
+                    {
+                        input[k] = rightArray[j];
+                        j++;
+                        f1.testedValue++;
+                    }
+                    else if (j == rightArray.Length)
+                    {
+                        input[k] = leftArray[i];
+                        i++;
+                        f1.testedValue++;
+                    }
+                    else if (leftArray[i] <= rightArray[j])
+                    {
+                        input[k] = leftArray[i];
+                        i++;
+                        f1.testedValue++;
+                    }
+                    else
+                    {
+                        input[k] = rightArray[j];
+                        j++;
+                        f1.testedValue++;
+                    }
+                }
+                z = ColorNumbers(input, temparray, z, f1);
+                Thread.Sleep(f1.delay);
+                f1.richTextBox1.AppendText("Schritt " + z + ": " + string.Join(" ", input));
+                f1.richTextBox1.AppendText("\n");
             }
         }
-
-        void merge(int[] arr, int[] helper, int low, int middle, int high)
-        {
-            for (int x = low; x <= high; x++)
-            {
-                helper[x] = arr[x];
-            }
-
-            int left = low;
-            int curr = low;
-            int right = middle + 1;
-
-            while (left <= middle && right <= high)
-            {
-                if (helper[right] > helper[left])
-                    arr[curr++] = helper[left++];
-                else
-                    arr[curr++] = helper[right++];
-            }
-
-            while (left <= middle)
-                arr[curr++] = helper[left++];
-        }
-
     }
 }

@@ -18,6 +18,7 @@ namespace SortAlgo.Algorithmen
                 temp = array[i];
                 j = i - 1;
 
+                f1.testedValue++;
                 while (j >= 0 && array[j] > temp)
                 {
                     array[j + 1] = array[j];

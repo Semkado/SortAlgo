@@ -34,22 +34,23 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.changesCount = new System.Windows.Forms.Label();
             this.elementCount = new System.Windows.Forms.Label();
             this.time = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.random_button = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.changesCount = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.testedLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // sort_button
             // 
-            this.sort_button.Location = new System.Drawing.Point(197, 226);
+            this.sort_button.Location = new System.Drawing.Point(197, 235);
             this.sort_button.Name = "sort_button";
             this.sort_button.Size = new System.Drawing.Size(75, 23);
             this.sort_button.TabIndex = 0;
@@ -100,15 +101,25 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.testedLabel);
             this.groupBox1.Controls.Add(this.changesCount);
             this.groupBox1.Controls.Add(this.elementCount);
             this.groupBox1.Controls.Add(this.time);
             this.groupBox1.Location = new System.Drawing.Point(15, 150);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(257, 70);
+            this.groupBox1.Size = new System.Drawing.Size(257, 79);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Auswertung:";
+            // 
+            // changesCount
+            // 
+            this.changesCount.AutoSize = true;
+            this.changesCount.Location = new System.Drawing.Point(6, 42);
+            this.changesCount.Name = "changesCount";
+            this.changesCount.Size = new System.Drawing.Size(88, 13);
+            this.changesCount.TabIndex = 12;
+            this.changesCount.Text = "Vertauschungen:";
             // 
             // elementCount
             // 
@@ -157,18 +168,9 @@
             this.richTextBox1.Location = new System.Drawing.Point(278, 37);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(292, 212);
+            this.richTextBox1.Size = new System.Drawing.Size(292, 221);
             this.richTextBox1.TabIndex = 11;
             this.richTextBox1.Text = "";
-            // 
-            // changesCount
-            // 
-            this.changesCount.AutoSize = true;
-            this.changesCount.Location = new System.Drawing.Point(6, 42);
-            this.changesCount.Name = "changesCount";
-            this.changesCount.Size = new System.Drawing.Size(88, 13);
-            this.changesCount.TabIndex = 12;
-            this.changesCount.Text = "Vertauschungen:";
             // 
             // textBox1
             // 
@@ -207,11 +209,20 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // testedLabel
+            // 
+            this.testedLabel.AutoSize = true;
+            this.testedLabel.Location = new System.Drawing.Point(6, 55);
+            this.testedLabel.Name = "testedLabel";
+            this.testedLabel.Size = new System.Drawing.Size(62, 13);
+            this.testedLabel.TabIndex = 13;
+            this.testedLabel.Text = "Prüfungen: ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 261);
+            this.ClientSize = new System.Drawing.Size(576, 270);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
@@ -254,6 +265,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label testedLabel;
     }
 }
 

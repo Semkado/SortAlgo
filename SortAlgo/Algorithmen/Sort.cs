@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace SortAlgo.Algorithmen
 {
-    class Sort
+    internal class Sort
     {
         public int ColorNumbers(int[] neu, int[] alt, int z, Form1 f1)
         {

@@ -16,6 +16,7 @@ namespace SortAlgo
         //Vertauschungen
         public int changedValues { get; set; }
         public int delay { get; private set; } = 0;
+        public int testedValue { get; set; } = 0;
 
         public Form1()
         {
@@ -74,10 +75,14 @@ namespace SortAlgo
             }
             else if (comboBox1.Text == "Merge - Sort.")
             {
+                /**
                 MessageBox.Show("Noch nicht verfügbar!",
                     "Algorithmus nicht gefunden",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+                    **/
+                mMergeSort.sort(input,0, arrayLaenge-1, this);
+                    
             }
             else if (comboBox1.Text == "<bitte wählen>")
             {
@@ -95,6 +100,8 @@ namespace SortAlgo
             mPerformance.Stop();
             time.Text = "Zeit: " + mPerformance.Duration;
             changesCount.Text = "Vertauschungen: " + changedValues;
+            testedLabel.Text = "Prüfungen: " + testedValue;
+
             changedValues = 0;        
         }
 

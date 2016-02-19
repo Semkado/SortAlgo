@@ -18,7 +18,7 @@ namespace SortAlgo.Algorithmen
                 for (i = 1; i <= elemente; i++)
                 {
                     System.Array.Copy(array, temparray, array.Length);
-
+                    f1.testedValue++;
                     if (array[i - 1] > array[i])
                     {
                         temp = array[i];

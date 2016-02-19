@@ -32,6 +32,7 @@ namespace SortAlgo.Algorithmen
                     array[index] = wert_klein;
                     f1.changedValues++;
                 }
+                f1.testedValue++;
                 z = ColorNumbers(array, temparray, z,  f1);
             }
             f1.richTextBox1.Update();
