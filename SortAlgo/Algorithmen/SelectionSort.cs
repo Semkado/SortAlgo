@@ -1,8 +1,8 @@
-﻿using System.Drawing;
+﻿using System.Threading;
 
 namespace SortAlgo.Algorithmen
 {
-    class SelectionSort
+    class SelectionSort : Sort
     {
         int z = 0;
         public void sort(int[] array, int elemente, Form1 f1)
@@ -30,33 +30,15 @@ namespace SortAlgo.Algorithmen
                     wert_klein = array[wert];
                     array[wert] = array[index];
                     array[index] = wert_klein;
+                    f1.changedValues++;
                 }
-                ColorNumbers(array, temparray, f1);
+                z = ColorNumbers(array, temparray, z,  f1);
             }
+            f1.richTextBox1.Update();
+            Thread.Sleep(f1.delay);
             f1.richTextBox1.AppendText("Schritt " + z + ": " + string.Join(" ", array));
             z = 0;
         }
-        private void ColorNumbers(int[] neu, int[] alt, Form1 f1)
-        {
-            f1.richTextBox1.AppendText("Schritt " + z + ": ");
-            z++;
-
-            for (int x = 0; x < neu.Length; x++)
-            {
-                if (alt[x] != neu[x])
-                {
-                    f1.richTextBox1.SelectionColor = Color.CornflowerBlue;
-                    f1.richTextBox1.AppendText(alt[x].ToString());
-                    f1.richTextBox1.SelectionColor = Color.Black;
-                    f1.richTextBox1.AppendText(" ");
-                }
-                else
-                {
-                    f1.richTextBox1.AppendText(alt[x].ToString());
-                    f1.richTextBox1.AppendText(" ");
-                }
-            }
-            f1.richTextBox1.AppendText("\n");
-        }
+        
     }
 }

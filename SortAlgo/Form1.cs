@@ -7,10 +7,15 @@ namespace SortAlgo
 {
     public partial class Form1 : Form
     {
+        // Algorithmen
         SelectionSort mSelectionSort = new SelectionSort();
         InsertationSort mInsertationSort = new InsertationSort();
         BubbleSort mBubbleSort = new BubbleSort();
-        MergeSort mMergeSort = new MergeSort();        
+        MergeSort mMergeSort = new MergeSort();
+
+        //Vertauschungen
+        public int changedValues { get; set; }
+        public int delay { get; private set; } = 0;
 
         public Form1()
         {
@@ -23,7 +28,7 @@ namespace SortAlgo
             Performance mPerformance = new Performance();
             int arrayLaenge;
 
-            //Listbox leeren
+            //Richtextbox leeren
             richTextBox1.Clear();
 
             mPerformance.Start();
@@ -50,7 +55,7 @@ namespace SortAlgo
             #region List<String> to Int[]
             int[] input = l.ToArray();
             arrayLaenge = input.Length;
-            label6.Text = "Anzahl der Elemente: " + arrayLaenge;
+            elementCount.Text = "Anzahl der Elemente: " + arrayLaenge;
             #endregion
 
             //Algorithmus auswählen
@@ -88,13 +93,35 @@ namespace SortAlgo
             #endregion
 
             mPerformance.Stop();
-            label4.Text = "Zeit: " + mPerformance.Duration;            
+            time.Text = "Zeit: " + mPerformance.Duration;
+            changesCount.Text = "Vertauschungen: " + changedValues;
+            changedValues = 0;        
         }
 
         private void random_button_Click(object sender, EventArgs e)
         {
             Random r = new Random();
             input_tB.Text += r.Next(1, 100)+ " ";
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try {
+                delay = Convert.ToInt32(textBox1.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fehler: " + ex);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Random r = new Random();
+                input_tB.Text += r.Next(1, 100) + " ";
+            }
         }
     }
 }

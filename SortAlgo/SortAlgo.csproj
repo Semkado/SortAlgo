@@ -81,6 +81,7 @@
     <Compile Include="Algorithmen\InsertationSort.cs" />
     <Compile Include="Algorithmen\MergeSort.cs" />
     <Compile Include="Algorithmen\SelectionSort.cs" />
+    <Compile Include="Algorithmen\Sort.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

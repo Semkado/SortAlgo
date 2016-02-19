@@ -34,11 +34,16 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.elementCount = new System.Windows.Forms.Label();
+            this.time = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.random_button = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.changesCount = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +76,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Bubble - Sort.",
@@ -82,7 +88,6 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.Sorted = true;
             this.comboBox1.TabIndex = 5;
-            this.comboBox1.Text = "<bitte wählen>";
             // 
             // label3
             // 
@@ -95,8 +100,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.changesCount);
+            this.groupBox1.Controls.Add(this.elementCount);
+            this.groupBox1.Controls.Add(this.time);
             this.groupBox1.Location = new System.Drawing.Point(15, 150);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(257, 70);
@@ -104,23 +110,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Auswertung:";
             // 
-            // label6
+            // elementCount
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 29);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Anzahl der Elemente: ";
+            this.elementCount.AutoSize = true;
+            this.elementCount.Location = new System.Drawing.Point(6, 29);
+            this.elementCount.Name = "elementCount";
+            this.elementCount.Size = new System.Drawing.Size(110, 13);
+            this.elementCount.TabIndex = 8;
+            this.elementCount.Text = "Anzahl der Elemente: ";
             // 
-            // label4
+            // time
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Zeit:";
+            this.time.AutoSize = true;
+            this.time.Location = new System.Drawing.Point(6, 16);
+            this.time.Name = "time";
+            this.time.Size = new System.Drawing.Size(28, 13);
+            this.time.TabIndex = 0;
+            this.time.Text = "Zeit:";
             // 
             // label5
             // 
@@ -135,7 +141,7 @@
             // 
             this.random_button.Location = new System.Drawing.Point(118, 33);
             this.random_button.Name = "random_button";
-            this.random_button.Size = new System.Drawing.Size(75, 23);
+            this.random_button.Size = new System.Drawing.Size(59, 23);
             this.random_button.TabIndex = 10;
             this.random_button.Text = "Random";
             this.random_button.UseVisualStyleBackColor = true;
@@ -155,11 +161,61 @@
             this.richTextBox1.TabIndex = 11;
             this.richTextBox1.Text = "";
             // 
+            // changesCount
+            // 
+            this.changesCount.AutoSize = true;
+            this.changesCount.Location = new System.Drawing.Point(6, 42);
+            this.changesCount.Name = "changesCount";
+            this.changesCount.Size = new System.Drawing.Size(88, 13);
+            this.changesCount.TabIndex = 12;
+            this.changesCount.Text = "Vertauschungen:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 124);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 12;
+            this.textBox1.Text = "0";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(118, 121);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(59, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Set";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 108);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Verzögerung:";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(183, 28);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(69, 35);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "10x Random";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(576, 261);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.random_button);
             this.Controls.Add(this.label5);
@@ -188,11 +244,16 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label time;
+        private System.Windows.Forms.Label elementCount;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button random_button;
         internal System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label changesCount;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
     }
 }
 
