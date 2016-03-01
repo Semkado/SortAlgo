@@ -31,3 +31,7 @@ Dieses Tool habe ich im für einen Unterrichtsreihe im Informatikunterricht gesc
 	- Merge-Sort eingebaut</br>
 	bekannte Bugs:
 	- Schrittanzeige bei Merge Sort nicht Korrekt
+* 1.4.0
+	- Quick-Sort eingebaut</br>
+	bekannte Bugs:
+	- Schrittanzeige bei Merge Sort nicht Korrekt
