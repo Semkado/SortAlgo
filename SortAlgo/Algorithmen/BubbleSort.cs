@@ -1,5 +1,4 @@
-﻿
-using System.Threading;
+﻿using System.Threading;
 
 namespace SortAlgo.Algorithmen
 {
@@ -8,10 +7,8 @@ namespace SortAlgo.Algorithmen
         int z = 0;
         public void sort(int[] array, int elemente, Form1 f1)
         {
-            int i, temp;
-
             int[] temparray = new int[array.Length];
-
+            int i, temp;
 
             while (elemente >= 0)
             {

@@ -15,7 +15,7 @@ namespace SortAlgo.Algorithmen
             {
                 if (alt[x] != neu[x])
                 {
-                    f1.richTextBox1.SelectionColor = Color.CornflowerBlue;
+                    f1.richTextBox1.SelectionColor = Color.Red;
                     f1.richTextBox1.AppendText(alt[x].ToString());
                     f1.richTextBox1.SelectionColor = Color.Black;
                     f1.richTextBox1.AppendText(" ");
@@ -27,6 +27,11 @@ namespace SortAlgo.Algorithmen
                 }
             }
             f1.richTextBox1.AppendText("\n");
+            //Scrollen
+            f1.richTextBox1.Select(f1.richTextBox1.Text.Length, 1);
+            f1.richTextBox1.ScrollToCaret();
+
+            f1.richTextBox1.Update();
             return z;
         }
     }

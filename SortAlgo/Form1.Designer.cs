@@ -34,6 +34,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.testedLabel = new System.Windows.Forms.Label();
             this.changesCount = new System.Windows.Forms.Label();
             this.elementCount = new System.Windows.Forms.Label();
             this.time = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.testedLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,6 +83,7 @@
             "Bubble - Sort.",
             "Insertation - Sort.",
             "Merge - Sort.",
+            "Quick - Sort.",
             "Selection - Sort."});
             this.comboBox1.Location = new System.Drawing.Point(12, 84);
             this.comboBox1.Name = "comboBox1";
@@ -111,6 +112,15 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Auswertung:";
+            // 
+            // testedLabel
+            // 
+            this.testedLabel.AutoSize = true;
+            this.testedLabel.Location = new System.Drawing.Point(6, 55);
+            this.testedLabel.Name = "testedLabel";
+            this.testedLabel.Size = new System.Drawing.Size(62, 13);
+            this.testedLabel.TabIndex = 13;
+            this.testedLabel.Text = "Prüfungen: ";
             // 
             // changesCount
             // 
@@ -208,15 +218,6 @@
             this.button2.Text = "10x Random";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // testedLabel
-            // 
-            this.testedLabel.AutoSize = true;
-            this.testedLabel.Location = new System.Drawing.Point(6, 55);
-            this.testedLabel.Name = "testedLabel";
-            this.testedLabel.Size = new System.Drawing.Size(62, 13);
-            this.testedLabel.TabIndex = 13;
-            this.testedLabel.Text = "Prüfungen: ";
             // 
             // Form1
             // 

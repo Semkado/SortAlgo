@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using SortAlgo.Algorithmen;
+using System.Threading;
 
 namespace SortAlgo
 {
@@ -12,6 +13,7 @@ namespace SortAlgo
         InsertationSort mInsertationSort = new InsertationSort();
         BubbleSort mBubbleSort = new BubbleSort();
         MergeSort mMergeSort = new MergeSort();
+        QuickSort mQuickSort = new QuickSort();
 
         //Vertauschungen
         public int changedValues { get; set; }
@@ -59,6 +61,16 @@ namespace SortAlgo
             elementCount.Text = "Anzahl der Elemente: " + arrayLaenge;
             #endregion
 
+            #region Sicherheit
+            /*if(arrayLaenge > 40)
+            {
+                MessageBox.Show("Bitte geben Sie maximal 40 Zahlen zum sortieren an.",
+                    "Zu viele Zahlen",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }*/
+            #endregion
+
             //Algorithmus auswählen
             #region Algorithmen auswahl
             if (comboBox1.Text == "Selection - Sort.")
@@ -75,14 +87,12 @@ namespace SortAlgo
             }
             else if (comboBox1.Text == "Merge - Sort.")
             {
-                /**
-                MessageBox.Show("Noch nicht verfügbar!",
-                    "Algorithmus nicht gefunden",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-                    **/
                 mMergeSort.sort(input,0, arrayLaenge-1, this);
                     
+            }
+            else if(comboBox1.Text == "Quick - Sort.")
+            {
+                mQuickSort.sort(input, 0, arrayLaenge - 1, this);
             }
             else if (comboBox1.Text == "<bitte wählen>")
             {
@@ -124,10 +134,11 @@ namespace SortAlgo
 
         private void button2_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 100; i++)
             {
                 Random r = new Random();
                 input_tB.Text += r.Next(1, 100) + " ";
+                Thread.Sleep(100);
             }
         }
     }
