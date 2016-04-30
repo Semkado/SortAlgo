@@ -4,13 +4,13 @@ namespace SortAlgo.Algorithmen
 {
     class SelectionSort : Sort
     {
-        int z = 0;
+        int z;
         public void sort(int[] array, int elemente, Form1 f1)
         {
             int index, index_klein,
                 wert, wert_klein;
 
-            int[] temparray = new int[array.Length];
+            var temparray = new int[array.Length];
 
             for (index = 0; index < elemente; index++)
             {
@@ -33,13 +33,12 @@ namespace SortAlgo.Algorithmen
                     f1.changedValues++;
                 }
                 f1.testedValue++;
-                z = ColorNumbers(array, temparray, z,  f1);
+                z = ColorNumbers(array, temparray, z, f1);
             }
             f1.richTextBox1.Update();
             Thread.Sleep(f1.delay);
             f1.richTextBox1.AppendText("Schritt " + z + ": " + string.Join(" ", array));
             z = 0;
         }
-        
     }
 }

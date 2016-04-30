@@ -5,14 +5,14 @@ namespace SortAlgo.Algorithmen
 {
     internal class MergeSort : Sort
     {
-        int z = 0;
+        int z;
         public void sort(int[] input, int left, int right, Form1 f1)
         {
-            int[] temparray = new int[input.Length];
+            var temparray = new int[input.Length];
 
             if (left < right)
             {
-                int middle = (left + right) / 2;
+                var middle = (left + right) / 2;
 
                 Array.Copy(input, temparray, input.Length);
 
@@ -20,15 +20,15 @@ namespace SortAlgo.Algorithmen
                 sort(input, middle + 1, right, f1);
 
                 //Merge
-                int[] leftArray = new int[middle - left + 1];
-                int[] rightArray = new int[right - middle];
+                var leftArray = new int[middle - left + 1];
+                var rightArray = new int[right - middle];
 
                 Array.Copy(input, left, leftArray, 0, middle - left + 1);
                 Array.Copy(input, middle + 1, rightArray, 0, right - middle);
                 f1.changedValues++;
-                
-                int i = 0;
-                int j = 0;
+
+                var i = 0;
+                var j = 0;
                 for (int k = left; k < right + 1; k++)
                 {
                     if (i == leftArray.Length)

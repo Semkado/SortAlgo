@@ -1,6 +1,5 @@
-﻿using System;
+﻿using System.ComponentModel;
 using System.Runtime.InteropServices;
-using System.ComponentModel;
 using System.Threading;
 
 namespace SortAlgo
@@ -22,9 +21,9 @@ namespace SortAlgo
             startTime = 0;
             stopTime = 0;
 
-            if (QueryPerformanceFrequency(out freq) == false)
+            if (!QueryPerformanceFrequency(out freq))
             {
-                // high-performance counter not supported 
+                // high-performance counter not supported
                 throw new Win32Exception();
             }
         }

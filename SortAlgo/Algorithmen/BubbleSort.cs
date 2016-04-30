@@ -4,10 +4,10 @@ namespace SortAlgo.Algorithmen
 {
     class BubbleSort : Sort
     {
-        int z = 0;
+        int z;
         public void sort(int[] array, int elemente, Form1 f1)
         {
-            int[] temparray = new int[array.Length];
+           var temparray = new int[array.Length];
             int i, temp;
 
             while (elemente >= 0)

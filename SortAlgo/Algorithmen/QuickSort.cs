@@ -2,29 +2,29 @@
 {
     class QuickSort : Sort
     {
-        int z = 0;
+        int z;
 
         public void sort(int[] x, int links, int rechts, Form1 f1)
         {
-            int[] temparray = new int[x.Length];
+            var temparray = new int[x.Length];
 
             System.Array.Copy(x, temparray, x.Length);
             if (links < rechts)
             {
-                int i = partition(x, links, rechts, f1);
+                var i = partition(x, links, rechts);
                 sort(x, links, i - 1, f1);
                 sort(x, i + 1, rechts, f1);
             }
 
             z = ColorNumbers(x, temparray, z, f1);
         }
-        public static int partition(int[] x, int links, int rechts, Form1 f1)
+        public static int partition(int[] x, int links, int rechts)
         {
             int pivot, i, j, help;
             pivot = x[rechts];
             i = links;
             j = rechts - 1;
-            while(i <=j)
+            while (i <= j)
             {
                 if (x[i] > pivot)
                 {

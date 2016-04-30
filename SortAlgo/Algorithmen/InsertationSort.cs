@@ -1,15 +1,14 @@
-﻿using System.Drawing;
-using System.Threading;
+﻿using System.Threading;
 
 namespace SortAlgo.Algorithmen
 {
-    class InsertationSort :Sort
+    class InsertationSort : Sort
     {
-        int z = 0;
-        public void sort(int[] array, int elemente, Form1 f1)
+        int z;
+        public void sort(int[] array, Form1 f1)
         {
             int temp, j;
-            int[] temparray = new int[array.Length];
+            var temparray = new int[array.Length];
 
             for (int i = 1; i < array.Length; i++)
             {
@@ -26,7 +25,6 @@ namespace SortAlgo.Algorithmen
                     f1.changedValues++;
                 }
                 array[j + 1] = temp;
-                
                 z = ColorNumbers(array, temparray, z, f1);
             }
             f1.richTextBox1.Update();

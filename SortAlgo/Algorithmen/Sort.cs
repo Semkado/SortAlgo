@@ -5,7 +5,7 @@ namespace SortAlgo.Algorithmen
 {
     internal class Sort
     {
-        public int ColorNumbers(int[] neu, int[] alt, int z, Form1 f1)
+        public static int ColorNumbers(int[] neu, int[] alt, int z, Form1 f1)
         {
             f1.richTextBox1.AppendText("Schritt " + z + ": ");
             z++;

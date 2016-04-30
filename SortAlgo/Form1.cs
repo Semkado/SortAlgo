@@ -1,19 +1,20 @@
-﻿using System;
+﻿using SortAlgo.Algorithmen;
+using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
-using SortAlgo.Algorithmen;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace SortAlgo
 {
     public partial class Form1 : Form
     {
         // Algorithmen
-        SelectionSort mSelectionSort = new SelectionSort();
-        InsertationSort mInsertationSort = new InsertationSort();
-        BubbleSort mBubbleSort = new BubbleSort();
-        MergeSort mMergeSort = new MergeSort();
-        QuickSort mQuickSort = new QuickSort();
+
+        readonly SelectionSort mSelectionSort = new SelectionSort();
+        readonly InsertationSort mInsertationSort = new InsertationSort();
+        readonly BubbleSort mBubbleSort = new BubbleSort();
+        readonly MergeSort mMergeSort = new MergeSort();
+        readonly QuickSort mQuickSort = new QuickSort();
 
         //Vertauschungen
         public int changedValues { get; set; }
@@ -27,8 +28,8 @@ namespace SortAlgo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<int> l = new List<int>();
-            Performance mPerformance = new Performance();
+            var l = new List<int>();
+            var mPerformance = new Performance();
             int arrayLaenge;
 
             //Richtextbox leeren
@@ -37,8 +38,8 @@ namespace SortAlgo
             mPerformance.Start();
             #region Textbox to String List
             char[] delimiterChars = { ' ', ';' }; //Zeichen, bei denen gesplittet werden soll
-            string text = input_tB.Text; //Text aus der Textbox
-            string[] words = text.Split(delimiterChars);    //Array mit gesplitteten Strings wird erstellt
+            var text = input_tB.Text; //Text aus der Textbox
+            var words = text.Split(delimiterChars);    //Array mit gesplitteten Strings wird erstellt
 
             foreach (string s in words)
             {
@@ -56,7 +57,7 @@ namespace SortAlgo
             #endregion
 
             #region List<String> to Int[]
-            int[] input = l.ToArray();
+            var input = l.ToArray();
             arrayLaenge = input.Length;
             elementCount.Text = "Anzahl der Elemente: " + arrayLaenge;
             #endregion
@@ -75,11 +76,11 @@ namespace SortAlgo
             #region Algorithmen auswahl
             if (comboBox1.Text == "Selection - Sort.")
             {
-                mSelectionSort.sort(input, arrayLaenge -1, this);
+                mSelectionSort.sort(input, arrayLaenge - 1, this);
             }
             else if (comboBox1.Text == "Insertation - Sort.")
             {
-                mInsertationSort.sort(input, arrayLaenge -1, this);
+                mInsertationSort.sort(input, this);
             }
             else if (comboBox1.Text == "Bubble - Sort.")
             {
@@ -87,10 +88,10 @@ namespace SortAlgo
             }
             else if (comboBox1.Text == "Merge - Sort.")
             {
-                mMergeSort.sort(input,0, arrayLaenge-1, this);
-                    
+                mMergeSort.sort(input, 0, arrayLaenge - 1, this);
+
             }
-            else if(comboBox1.Text == "Quick - Sort.")
+            else if (comboBox1.Text == "Quick - Sort.")
             {
                 mQuickSort.sort(input, 0, arrayLaenge - 1, this);
             }
@@ -112,18 +113,19 @@ namespace SortAlgo
             changesCount.Text = "Vertauschungen: " + changedValues;
             testedLabel.Text = "Prüfungen: " + testedValue;
 
-            changedValues = 0;        
+            changedValues = 0;
         }
 
         private void random_button_Click(object sender, EventArgs e)
         {
-            Random r = new Random();
-            input_tB.Text += r.Next(1, 100)+ " ";
+            var r = new Random();
+            input_tB.Text += r.Next(1, 100) + " ";
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 delay = Convert.ToInt32(textBox1.Text);
             }
             catch (Exception ex)
@@ -134,12 +136,14 @@ namespace SortAlgo
 
         private void button2_Click(object sender, EventArgs e)
         {
+            var r = new Random();
+            var newInputText = input_tB.Text;
             for (int i = 0; i < 100; i++)
             {
-                Random r = new Random();
-                input_tB.Text += r.Next(1, 100) + " ";
+                newInputText = +r.Next(1, 100) + " ";
                 Thread.Sleep(100);
             }
+            input_tB.Text = newInputText;
         }
     }
 }
